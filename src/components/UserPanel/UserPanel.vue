@@ -5,7 +5,7 @@
       <img src="./../../assets/logo.png" class="img-circle" alt="User Image" />
     </div>
     <div class="pull-left info">
-      <p>{{ username }}</p>
+      <p>{{ getUsername }}</p>
       <p><i class="fa fa-circle text-success"></i> Online</p>
     </div>
   </div>
@@ -15,9 +15,12 @@
 export default {
   name: "UserPanel",
   data() {
-    return {
-      username: "My username"
-    };
+    return {};
+  },
+  computed: {
+    getUsername() {
+      return this.$store.state.username;
+    }
   }
 };
 </script>

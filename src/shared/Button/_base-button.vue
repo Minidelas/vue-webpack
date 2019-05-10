@@ -1,5 +1,5 @@
 <template>
-  <button class="btn" v-bind:class="[buttonClass]" v-on:click="onClick">
+  <button class="btn" v-bind:class="[buttonClass]" @click="onClick">
     {{ btn_text }}
   </button>
 </template>

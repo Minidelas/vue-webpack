@@ -3,7 +3,7 @@
     <!-- Logo -->
     <div class="logo">
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Ciber</b>Experis</span>
+      <span class="logo-lg"><b>Ciber</b>Experis {{ count }}</span>
     </div>
 
     <nav class="navbar navbar-static-top">
@@ -17,6 +17,11 @@
 <script>
 export default {
   name: "Navbar",
-  components: {}
+  components: {},
+  computed: {
+    count() {
+      return this.$store.state.count;
+    }
+  }
 };
 </script>
