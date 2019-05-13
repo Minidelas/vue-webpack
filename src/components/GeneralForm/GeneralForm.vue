@@ -11,7 +11,7 @@
         <BaseInputText
           v-bind:labelText="'Change your username here:'"
           v-bind:valueIn="getUsername"
-          v-on:value-out="onValueOut($event)"
+          v-on:value-out="setUsername($event)"
         >
         </BaseInputText>
 
@@ -26,16 +26,16 @@
       <div class="box-footer">
         <div class="row">
           <div class="col-auto">
-            <BaseButton 
+            <BaseButton
               v-bind:btn_text="'Add'"
               v-bind:button_type="'success'"
               v-on:click="increment"
             >
             </BaseButton>
-          </div>    
-        
+          </div>
+
           <div class="col-auto">
-            <BaseButton 
+            <BaseButton
               v-bind:btn_text="' - '"
               v-bind:button_type="'danger'"
               v-on:click="decrease"
@@ -43,7 +43,6 @@
             </BaseButton>
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -51,22 +50,15 @@
 </template>
 
 <script>
+import { INCREMENT, DECREASE, SET_USERNAME } from "@/mutation-types";
+import { mapMutations } from "vuex";
+
 export default {
   data() {
     return {};
   },
   methods: {
-    increment() {
-      this.$store.commit('increment');
-    },
-
-    decrease() {
-      this.$store.commit('decrease');
-    },
-
-    onValueOut($event) {
-      this.$store.commit('setUsername', $event);
-    }
+    ...mapMutations([INCREMENT, DECREASE, SET_USERNAME])
   },
   computed: {
     count() {
