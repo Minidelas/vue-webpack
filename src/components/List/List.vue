@@ -1,7 +1,7 @@
 <template>
   <ul class="list-group" v-if="list.length > 0">
     <li class="list-group-item" v-for="item in list">
-      {{ item.label }}
+      <span @click="itemSelected(item)">{{ item.label }}</span>
       <i class="fa fa-times pull-right" @click="deleteItemById(item)"></i>
     </li>
   </ul>
@@ -9,12 +9,13 @@
 
 <script>
 export default {
-  data() {
-    return {
-      list: this.$store.state.aboutList
-    };
+  props: {
+    list: Array
   },
   methods: {
+    itemSelected(item) {
+      this.$emit("item-clicked", item);
+    },
     deleteItemById(item) {
       this.$emit("delete-item-id", item.id);
     }

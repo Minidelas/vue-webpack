@@ -27,18 +27,20 @@
         <div class="row">
           <div class="col-auto">
             <BaseButton
-              v-bind:btn_text="'Add'"
-              v-bind:button_type="'success'"
-              v-on:click="increment"
+              :button_emisor="'MOUSEDOWN'"
+              :button_text="'Add'"
+              :button_type="'success'"
+              v-on:emitted="increment"
             >
             </BaseButton>
           </div>
 
           <div class="col-auto">
             <BaseButton
-              v-bind:btn_text="' - '"
-              v-bind:button_type="'danger'"
-              v-on:click="decrease"
+              :button_emisor="'MOUSEDOWN'"
+              :button_text="' - '"
+              :button_type="'danger'"
+              v-on:emitted="decrease"
             >
             </BaseButton>
           </div>

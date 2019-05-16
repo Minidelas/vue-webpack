@@ -1,6 +1,5 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
 
 Vue.use(Router);
 
@@ -11,7 +10,7 @@ export default new Router({
     {
       path: "/",
       name: "home",
-      component: Home
+      component: () => import("@/views/Home.vue")
     },
     {
       path: "/about",
@@ -19,12 +18,36 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import("./views/About.vue")
+      component: () => import("@/views/About.vue")
     },
     {
       path: "/form",
       name: "form",
-      component: () => import("./views/VueForm.vue")
+      component: () => import("@/views/VueForm.vue")
+    },
+    {
+      path: "/profiles",
+      name: "profile",
+      component: () => import("@/views/ProfileList.vue")
+    },
+    {
+      path: "/profiles/:id",
+      name: "profileID",
+      component: () => import("@/views/Profile.vue"),
+      children: [
+        {
+          path: "",
+          component: () => import("@/components/UserData/UserData.vue")
+        },
+        {
+          path: "data",
+          component: () => import("@/components/UserData/UserData.vue")
+        },
+        {
+          path: "task",
+          component: () => import("@/components/UserTasks/UserTasks.vue")
+        }
+      ]
     }
   ]
 });

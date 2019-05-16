@@ -1,18 +1,62 @@
 <template>
-  <button class="btn" v-bind:class="[buttonClass]" @click="onClick">
-    {{ btn_text }}
-  </button>
+  <div>
+    <button
+      class="btn"
+      v-if="button_emisor == 'CLICK'"
+      v-bind:class="[buttonClass]"
+      @click="onClick"
+    >
+      {{ button_text }}
+    </button>
+
+    <button
+      class="btn"
+      v-if="button_emisor == 'MOUSEDOWN'"
+      v-bind:class="[buttonClass]"
+      @mousedown="mousedown"
+      @mouseup="mouseup"
+    >
+      {{ button_text }}
+    </button>
+  </div>
 </template>
 
 <script>
 export default {
   props: {
-    btn_text: String,
+    button_emisor: {
+      type: String,
+      default: "CLICK"
+    },
+    button_text: String,
     button_type: String
+  },
+  data() {
+    return {
+      mousedownID: -1
+    };
   },
   methods: {
     onClick() {
-      this.$emit("click");
+      this.$emit("emitted");
+    },
+
+    mousedown(event) {
+      if (this.mousedownID == -1) {
+        //Prevent multimple loops!
+        this.mousedownID = setInterval(
+          this.onClick,
+          100 /*execute every 100ms*/
+        );
+      }
+    },
+
+    mouseup(event) {
+      if (this.mousedownID != -1) {
+        //Only stop if exists
+        clearInterval(this.mousedownID);
+        this.mousedownID = -1;
+      }
     }
   },
   computed: {

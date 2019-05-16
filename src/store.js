@@ -19,6 +19,18 @@ export default new Vuex.Store({
       { id: 0, label: "Rápida elaboración." },
       { id: 1, label: "Sencillo y ágil." },
       { id: 2, label: "Máximo rendimiento." }
+    ],
+    routerLinks: [
+      { link: "/", itemTitle: "Dashboard", badgeTitle: "New" },
+      { link: "/form", itemTitle: "Form", badgeTitle: "" },
+      { link: "/profiles", itemTitle: "Profiles", badgeTitle: "*" },
+      { link: "/about", itemTitle: "About", badgeTitle: "" }
+    ],
+    users: [
+      { id: 0, label: "Ismael" },
+      { id: 1, label: "Samuel" },
+      { id: 2, label: "Karina" },
+      { id: 3, label: "Elena" }
     ]
   },
   mutations: {

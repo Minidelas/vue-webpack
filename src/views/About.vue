@@ -1,11 +1,11 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <List v-on:delete-item-id="deleteItem($event)" />
+    <List :list="list" v-on:delete-item-id="deleteItem($event)" />
 
     <BaseInputText
-      v-bind:labelText="'Add items here:'"
-      v-bind:valueIn="inputValue"
+      :labelText="'Add items here:'"
+      :valueIn="inputValue"
       v-on:value-out="onValueOut($event)"
     >
     </BaseInputText>
@@ -13,9 +13,9 @@
     <div v-if="errorMessage !== ''">{{ errorMessage }}</div>
 
     <BaseButton
-      v-bind:btn_text="'Submit'"
-      v-bind:button_type="'success'"
-      @click="submit"
+      :button_text="'Submit'"
+      :button_type="'success'"
+      v-on:emitted="submit"
     >
     </BaseButton>
   </div>
@@ -37,6 +37,11 @@ export default {
   },
   components: {
     List
+  },
+  computed: {
+    list() {
+      return this.$store.state.aboutList;
+    } 
   },
   methods: {
     onValueOut($event) {
