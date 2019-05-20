@@ -3,7 +3,7 @@
     <button
       class="btn"
       v-if="button_emisor == 'CLICK'"
-      v-bind:class="[buttonClass]"
+      :class="[buttonClass]"
       @click="onClick"
     >
       {{ button_text }}
@@ -12,7 +12,7 @@
     <button
       class="btn"
       v-if="button_emisor == 'MOUSEDOWN'"
-      v-bind:class="[buttonClass]"
+      :class="[buttonClass]"
       @mousedown="mousedown"
       @mouseup="mouseup"
     >
@@ -41,7 +41,7 @@ export default {
       this.$emit("emitted");
     },
 
-    mousedown(event) {
+    mousedown() {
       if (this.mousedownID == -1) {
         //Prevent multimple loops!
         this.mousedownID = setInterval(
@@ -51,7 +51,7 @@ export default {
       }
     },
 
-    mouseup(event) {
+    mouseup() {
       if (this.mousedownID != -1) {
         //Only stop if exists
         clearInterval(this.mousedownID);

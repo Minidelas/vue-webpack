@@ -6,7 +6,13 @@
     </div>
     <div class="pull-left info">
       <p>{{ getUsername }}</p>
-      <p><i class="fa fa-circle text-success"></i> Online</p>
+      <p>
+        <i
+          class="fa fa-circle"
+          :class="{ 'text-success': connection, 'text-danger': !connection }"
+        ></i>
+        Online
+      </p>
     </div>
   </div>
 </template>
@@ -15,11 +21,18 @@
 export default {
   name: "UserPanel",
   data() {
-    return {};
+    return {
+      connection: false
+    };
   },
   computed: {
     getUsername() {
       return this.$store.state.username;
+    }
+  },
+  sockets: {
+    clientConnected(data) {
+      this.connection = data.connection;
     }
   }
 };

@@ -15,6 +15,12 @@ export default {
   components: {
     MaskLayout,
     MainContent
+  },
+  sockets: {
+    userConnected() {
+      console.log("SOMEONE HAS CONNECTED");
+      
+    }
   }
 };
 </script>

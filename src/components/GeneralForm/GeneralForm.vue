@@ -1,7 +1,7 @@
 <template>
   <div class="box box-primary">
     <div class="box-header with-border">
-      <h3 class="box-title">Quick Example</h3>
+      <h3 class="box-title">{{ $t("general_form.title") }}</h3>
     </div>
     <!-- /.box-header -->
 
@@ -9,9 +9,10 @@
     <div role="form">
       <div class="box-body">
         <BaseInputText
-          v-bind:labelText="'Change your username here:'"
-          v-bind:valueIn="getUsername"
-          v-on:value-out="setUsername($event)"
+          :labelText="'general_form.username.label'"
+          :placeholderText="'general_form.username.placeholder'"
+          :valueIn="getUsername"
+          @value-out="setUsername($event)"
         >
         </BaseInputText>
 
@@ -30,7 +31,7 @@
               :button_emisor="'MOUSEDOWN'"
               :button_text="'Add'"
               :button_type="'success'"
-              v-on:emitted="increment"
+              @emitted="increment"
             >
             </BaseButton>
           </div>
@@ -40,7 +41,7 @@
               :button_emisor="'MOUSEDOWN'"
               :button_text="' - '"
               :button_type="'danger'"
-              v-on:emitted="decrease"
+              @emitted="decrease"
             >
             </BaseButton>
           </div>
@@ -56,6 +57,41 @@ import { INCREMENT, DECREASE, SET_USERNAME } from "@/mutation-types";
 import { mapMutations } from "vuex";
 
 export default {
+  // beforeCreate() {
+  //   console.log("BeforeCreate");
+  // },
+  created() {
+    console.log("created");
+  },
+  // beforeMount() {
+  //   console.log("beforeMount");
+  // },
+  mounted() {
+    console.log("mounted");
+  },
+  // beforeUpdate() {
+  //   console.log("beforeUpdate");
+  // },
+  updated() {
+    console.log("update");
+  },
+  activated() {
+    console.log("activated");
+  },
+  deactivated() {
+    console.log("deactivated");
+  },
+  // beforeDestroy() {
+  //   console.log("beforeDestroy");
+  // },
+  destroyed() {
+    console.log("destroyed");
+  },
+  errorCaptured: (err, vm, info) => {
+    console.log(err);
+    console.log(vm);
+    console.log(info);
+  },
   data() {
     return {};
   },

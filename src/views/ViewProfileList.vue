@@ -1,8 +1,7 @@
 <template>
   <div>
-    <List 
-        :list="userList" 
-        v-on:item-clicked="itemClicked($event)" />
+    <h1>{{ $t("user_list.title") }}</h1>
+    <List :list="userList" @item-clicked="itemClicked($event)" />
   </div>
 </template>
 
@@ -17,12 +16,11 @@ export default {
   },
   methods: {
     itemClicked($event) {
-      console.log($event.id);
-      this.$router.push({ name: 'profileID', params: { id: $event.id } });
+      this.$router.push({ name: "profileID", params: { id: $event.id } });
     }
   },
   components: {
-      List
+    List
   }
 };
 </script>

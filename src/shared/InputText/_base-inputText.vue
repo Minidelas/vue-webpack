@@ -1,11 +1,12 @@
 <template>
   <div class="form-group">
-    <label>{{ labelText }}</label>
+    <label>{{ $t(labelText) }}</label>
     <input
       class="form-control"
       type="text"
       v-model="value"
-      v-on:input="valueOut"
+      @input="valueOut"
+      :placeholder="$t(placeholderText)"
     />
   </div>
 </template>
@@ -16,6 +17,11 @@ export default {
     labelText: {
       type: String,
       required: true
+    },
+    placeholderText: {
+      type: String,
+      required: false,
+      default: ""
     },
     valueIn: String
   },

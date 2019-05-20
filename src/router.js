@@ -1,50 +1,59 @@
 import Vue from "vue";
 import Router from "vue-router";
+import {
+  HOME_ROUTE,
+  ABOUT_ROUTE,
+  FORM_ROUTE,
+  PROFILES_ROUTE,
+  PROFILE_ID_ROUTE
+} from "@/routes-names";
 
 Vue.use(Router);
 
+// route level code-splitting
+// this generates a separate chunk (about.[hash].js) for this route
+// which is lazy-loaded when the route is visited.
 export default new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
     {
-      path: "/",
-      name: "home",
-      component: () => import("@/views/Home.vue")
+      path: HOME_ROUTE.path,
+      name: HOME_ROUTE.name,
+      component: () => import("@/views/ViewHome.vue")
     },
     {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import("@/views/About.vue")
+      path: ABOUT_ROUTE.path,
+      name: ABOUT_ROUTE.name,
+      component: () => import("@/views/ViewAbout.vue")
     },
     {
-      path: "/form",
-      name: "form",
-      component: () => import("@/views/VueForm.vue")
+      path: FORM_ROUTE.path,
+      name: FORM_ROUTE.name,
+      component: () => import("@/views/ViewForm.vue")
     },
     {
-      path: "/profiles",
-      name: "profile",
-      component: () => import("@/views/ProfileList.vue")
+      path: PROFILES_ROUTE.path,
+      name: PROFILES_ROUTE.name,
+      component: () => import("@/views/ViewProfileList.vue")
     },
     {
-      path: "/profiles/:id",
-      name: "profileID",
-      component: () => import("@/views/Profile.vue"),
+      path: PROFILE_ID_ROUTE.path,
+      name: PROFILE_ID_ROUTE.name,
+      component: () => import("@/views/ViewProfile.vue"),
       children: [
         {
-          path: "",
-          component: () => import("@/components/UserData/UserData.vue")
-        },
-        {
           path: "data",
+          name: "user-data",
           component: () => import("@/components/UserData/UserData.vue")
         },
+        // {
+        //   path: "data",
+        //   component: () => import("@/components/UserData/UserData.vue")
+        // },
         {
           path: "task",
+          name: "user-tasks",
           component: () => import("@/components/UserTasks/UserTasks.vue")
         }
       ]

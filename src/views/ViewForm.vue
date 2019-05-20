@@ -11,7 +11,6 @@ import GeneralForm from "@/components/GeneralForm/GeneralForm.vue";
 // @ is an alias to /src
 
 export default {
-  name: "Vueform",
   components: {
     GeneralForm
   }
