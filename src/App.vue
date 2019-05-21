@@ -19,7 +19,6 @@ export default {
   sockets: {
     userConnected() {
       console.log("SOMEONE HAS CONNECTED");
-      
     }
   }
 };

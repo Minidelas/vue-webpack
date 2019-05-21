@@ -8,9 +8,6 @@ import { i18n } from "@/plugins/i18n";
 import FlagIcon from "vue-flag-icon";
 import VueSocketIO from "vue-socket.io";
 
-/*
- *
- */
 Vue.use(FlagIcon);
 
 Vue.use(

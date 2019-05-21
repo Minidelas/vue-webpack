@@ -1,8 +1,11 @@
 <template>
   <li class="dropdown user user-menu open">
-    <a class="dropdown-toggle" @click="toogleDropdown">
-      <span class="hidden-xs">Internazionalization</span>
-    </a>
+    <button
+      class="dropdown-toggle btn btn-outline-light"
+      @click="toogleDropdown"
+    >
+      <span class="hidden-xs">{{ $t("internazionalization.title") }}</span>
+    </button>
 
     <ul class="dropdown-menu" :class="{ open: showDropdown }">
       <!-- Menu Body -->
@@ -11,7 +14,7 @@
           <div
             v-for="lang in languages"
             :key="lang.language"
-            class="col-xs-4 text-center"
+            class="col-12 text-center"
           >
             <button class="btn" @click="changeLocale(lang.language)">
               <flag :iso="lang.flag" :squared="false" />
@@ -52,7 +55,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.dropdown-menu.open {
-  display: block;
+.dropdown-menu {
+  max-width: 160px;
+
+  &.open {
+    display: block;
+  }
 }
 </style>

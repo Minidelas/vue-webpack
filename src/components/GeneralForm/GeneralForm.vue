@@ -29,7 +29,7 @@
           <div class="col-auto">
             <BaseButton
               :button_emisor="'MOUSEDOWN'"
-              :button_text="'Add'"
+              :button_text="'general_form.button_add'"
               :button_type="'success'"
               @emitted="increment"
             >
@@ -39,7 +39,7 @@
           <div class="col-auto">
             <BaseButton
               :button_emisor="'MOUSEDOWN'"
-              :button_text="' - '"
+              :button_text="'general_form.button_decrease'"
               :button_type="'danger'"
               @emitted="decrease"
             >
@@ -57,41 +57,6 @@ import { INCREMENT, DECREASE, SET_USERNAME } from "@/mutation-types";
 import { mapMutations } from "vuex";
 
 export default {
-  // beforeCreate() {
-  //   console.log("BeforeCreate");
-  // },
-  created() {
-    console.log("created");
-  },
-  // beforeMount() {
-  //   console.log("beforeMount");
-  // },
-  mounted() {
-    console.log("mounted");
-  },
-  // beforeUpdate() {
-  //   console.log("beforeUpdate");
-  // },
-  updated() {
-    console.log("update");
-  },
-  activated() {
-    console.log("activated");
-  },
-  deactivated() {
-    console.log("deactivated");
-  },
-  // beforeDestroy() {
-  //   console.log("beforeDestroy");
-  // },
-  destroyed() {
-    console.log("destroyed");
-  },
-  errorCaptured: (err, vm, info) => {
-    console.log(err);
-    console.log(vm);
-    console.log(info);
-  },
   data() {
     return {};
   },

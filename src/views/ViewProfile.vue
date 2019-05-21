@@ -11,7 +11,7 @@
         <router-link
           class="nav-link"
           :to="{
-            name: 'user-data',
+            name: data_route_name,
             params: {
               id: $route.params.id
             }
@@ -24,7 +24,7 @@
         <router-link
           class="nav-link"
           :to="{
-            name: 'user-tasks',
+            name: task_route_name,
             params: {
               id: $route.params.id
             }
@@ -40,7 +40,16 @@
 </template>
 
 <script>
+import { PROFILE_DATA_ROUTE, PROFILE_TASK_ROUTE } from "@/routes-names";
+
 export default {
+  data() {
+    return {
+      data_route_name: PROFILE_DATA_ROUTE.name,
+      task_route_name: PROFILE_TASK_ROUTE.name
+    };
+  },
+
   methods: {
     goBack() {
       this.$router.push({ name: "profile" });

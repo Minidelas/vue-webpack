@@ -6,7 +6,7 @@
       :class="[buttonClass]"
       @click="onClick"
     >
-      {{ button_text }}
+      {{ $t(button_text) }}
     </button>
 
     <button
@@ -16,7 +16,7 @@
       @mousedown="mousedown"
       @mouseup="mouseup"
     >
-      {{ button_text }}
+      {{ $t(button_text) }}
     </button>
   </div>
 </template>

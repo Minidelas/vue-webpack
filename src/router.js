@@ -5,7 +5,9 @@ import {
   ABOUT_ROUTE,
   FORM_ROUTE,
   PROFILES_ROUTE,
-  PROFILE_ID_ROUTE
+  PROFILE_ID_ROUTE,
+  PROFILE_DATA_ROUTE,
+  PROFILE_TASK_ROUTE
 } from "@/routes-names";
 
 Vue.use(Router);
@@ -43,17 +45,13 @@ export default new Router({
       component: () => import("@/views/ViewProfile.vue"),
       children: [
         {
-          path: "data",
-          name: "user-data",
+          path: PROFILE_DATA_ROUTE.path,
+          name: PROFILE_DATA_ROUTE.name,
           component: () => import("@/components/UserData/UserData.vue")
         },
-        // {
-        //   path: "data",
-        //   component: () => import("@/components/UserData/UserData.vue")
-        // },
         {
-          path: "task",
-          name: "user-tasks",
+          path: PROFILE_TASK_ROUTE.path,
+          name: PROFILE_TASK_ROUTE.name,
           component: () => import("@/components/UserTasks/UserTasks.vue")
         }
       ]

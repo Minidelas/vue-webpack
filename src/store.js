@@ -25,12 +25,6 @@ export default new Vuex.Store({
       { link: "/form", itemTitle: "Form", badgeTitle: "" },
       { link: "/profiles", itemTitle: "Profiles", badgeTitle: "*" },
       { link: "/about", itemTitle: "About", badgeTitle: "" }
-    ],
-    users: [
-      { id: 0, label: "Ismael" },
-      { id: 1, label: "Samuel" },
-      { id: 2, label: "Karina" },
-      { id: 3, label: "Elena" }
     ]
   },
   mutations: {

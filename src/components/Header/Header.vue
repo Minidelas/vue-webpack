@@ -1,8 +1,8 @@
 <template>
   <section class="content-header">
     <h1>
-      Main Title
-      <small>Control panel</small>
+      {{ $t("header.title") }}
+      <small>{{ $t("header.subtitle") }}</small>
     </h1>
     <HeaderBreadcrumbs />
   </section>
