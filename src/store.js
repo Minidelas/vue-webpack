@@ -21,10 +21,10 @@ export default new Vuex.Store({
       { id: 2, label: "Máximo rendimiento." }
     ],
     routerLinks: [
-      { link: "/", itemTitle: "Dashboard", badgeTitle: "New" },
-      { link: "/form", itemTitle: "Form", badgeTitle: "" },
-      { link: "/profiles", itemTitle: "Profiles", badgeTitle: "*" },
-      { link: "/about", itemTitle: "About", badgeTitle: "" }
+      { link: "/", itemTitle: "dashboard", badgeTitle: "New" },
+      { link: "/form", itemTitle: "form", badgeTitle: "" },
+      { link: "/profiles", itemTitle: "profiles", badgeTitle: "*" },
+      { link: "/about", itemTitle: "about", badgeTitle: "" }
     ]
   },
   mutations: {

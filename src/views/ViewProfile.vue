@@ -40,7 +40,8 @@
 </template>
 
 <script>
-import { PROFILE_DATA_ROUTE, PROFILE_TASK_ROUTE } from "@/routes-names";
+import { PROFILE_DATA_ROUTE, PROFILE_TASK_ROUTE, PROFILES_ROUTE } from "@/routes-names";
+import { mapState } from "vuex";
 
 export default {
   data() {
@@ -52,13 +53,15 @@ export default {
 
   methods: {
     goBack() {
-      this.$router.push({ name: "profile" });
+      this.$router.push({ name: PROFILES_ROUTE.name });
     }
   },
 
   computed: {
+    ...mapState("profiles", ["profilesList"]),
+
     userName() {
-      return this.$store.state.users[this.$route.params.id].label;
+      return this.profilesList[this.$route.params.id].label;
     }
   }
 };

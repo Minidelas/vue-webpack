@@ -27,6 +27,12 @@ const messages = {
     internazionalization: {
       title: "Language"
     },
+    navigation: {
+      dashboard: "Dashboard",
+      form: "Form",
+      profiles: "Profiles",
+      about: "About us"
+    },
     profile: {
       current_user: "Currently visualizing",
       data: "User data",
@@ -50,6 +56,8 @@ const messages = {
       back: "Volver"
     },
     general_form: {
+      button_add: "Añadir",
+      button_decrease: "Sustraer",
       title: "Ejemplo de formulario",
       username: {
         label: "Escribe aquí tu nombre de usuario",
@@ -59,6 +67,15 @@ const messages = {
     header: {
       subtitle: "Pequeña descripción de la aplicación",
       title: "Título principal de la aplicación"
+    },
+    internazionalization: {
+      title: "Idioma"
+    },
+    navigation: {
+      dashboard: "Panel de control",
+      form: "Formulario",
+      profiles: "Perfiles",
+      about: "Sobre nosotros"
     },
     profile: {
       current_user: "Visualizando actualmente",
