@@ -4,64 +4,77 @@
       <i class="fa fa-chevron-left"></i>
       {{ $t("general.back") }}
     </span>
-    <h2>{{ $t("profile.current_user") }} {{ userName }}</h2>
+    <h2>{{ $t("profile.current_user") }} {{ user.name }}</h2>
 
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <router-link
-          class="nav-link"
-          :to="{
-            name: data_route_name,
-            params: {
-              id: $route.params.id
-            }
-          }"
-        >
-          {{ $t("profile.data") }}
-        </router-link>
-      </li>
-      <li class="nav-item">
-        <router-link
-          class="nav-link"
-          :to="{
-            name: task_route_name,
-            params: {
-              id: $route.params.id
-            }
-          }"
-        >
-          {{ $t("profile.tasks") }}
-        </router-link>
-      </li>
-    </ul>
+    <div class="nav-tabs-custom">
+      <ul class="nav nav-tabs">
+        <li :class="{ active: checkRoute(data_route_name) }">
+          <router-link
+            class="nav-link"
+            :to="{
+              name: data_route_name,
+              params: {
+                id: $route.params.id
+              }
+            }"
+          >
+            {{ $t("profile.data") }}
+          </router-link>
+        </li>
+        <li :class="{ active: checkRoute(task_route_name) }">
+          <router-link
+            class="nav-link"
+            :to="{
+              name: task_route_name,
+              params: {
+                id: $route.params.id
+              }
+            }"
+          >
+            {{ $t("profile.tasks") }}
+          </router-link>
+        </li>
+      </ul>
+    </div>
 
-    <router-view></router-view>
+    <div class="tab-content">
+      <div class="tab-pane active">
+        <router-view></router-view>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { PROFILE_DATA_ROUTE, PROFILE_TASK_ROUTE, PROFILES_ROUTE } from "@/routes-names";
-import { mapState } from "vuex";
+import UserService from "@/services/user.service";
+import {
+  PROFILE_DATA_ROUTE,
+  PROFILE_TASK_ROUTE,
+  PROFILES_ROUTE
+} from "@/routes-names";
 
 export default {
   data() {
     return {
+      user: {},
       data_route_name: PROFILE_DATA_ROUTE.name,
       task_route_name: PROFILE_TASK_ROUTE.name
     };
   },
 
+  mounted() {
+    UserService.getUser(this.$route.params.id).then(response => {
+      this.user = response.data.user;
+    });
+  },
+
   methods: {
     goBack() {
       this.$router.push({ name: PROFILES_ROUTE.name });
-    }
-  },
+    },
 
-  computed: {
-    ...mapState("profiles", ["profilesList"]),
-
-    userName() {
-      return this.profilesList[this.$route.params.id].label;
+    checkRoute(route) {
+      return this.$route.name === route;
     }
   }
 };

@@ -9,7 +9,8 @@ const messages = {
       title: "About us"
     },
     general: {
-      back: "Back"
+      back: "Back",
+      search: "Search"
     },
     general_form: {
       button_add: "Add",
@@ -38,6 +39,9 @@ const messages = {
       data: "User data",
       tasks: "User tasks"
     },
+    profile_list: {
+      search_bar_placeholder: "Type the name to search..."
+    },
     user_list: {
       title: "User list"
     },
@@ -53,7 +57,8 @@ const messages = {
       title: "Sobre nosotros"
     },
     general: {
-      back: "Volver"
+      back: "Volver",
+      search: "Buscar"
     },
     general_form: {
       button_add: "Añadir",
@@ -81,6 +86,9 @@ const messages = {
       current_user: "Visualizando actualmente",
       data: "Datos de usuario",
       tasks: "Tareas de usuario"
+    },
+    profile_list: {
+      search_bar_placeholder: "Escriba el nombre que quiera buscar..."
     },
     user_list: {
       title: "Listado de usuarios"

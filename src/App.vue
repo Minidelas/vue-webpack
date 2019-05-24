@@ -20,6 +20,10 @@ export default {
     // Function name must be the alias emitted
     userConnected() {
       console.log("SOMEONE HAS CONNECTED");
+    },
+
+    userAdded() {
+      console.log("NEW USER ADDED");
     }
   }
 };

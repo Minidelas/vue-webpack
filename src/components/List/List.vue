@@ -1,6 +1,6 @@
 <template>
   <ul class="list-group" v-if="list.length > 0">
-    <li class="list-group-item" v-for="(item, index) in list" :key="item.label">
+    <li class="list-group-item" v-for="(item, index) in list" :key="item.id">
       <div class="row">
         <span class="col" @click="itemSelected(item)">{{ item.label }}</span>
         <i

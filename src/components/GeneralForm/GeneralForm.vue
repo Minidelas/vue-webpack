@@ -13,8 +13,7 @@
           :placeholderText="'general_form.username.placeholder'"
           :valueIn="getUsername"
           @value-out="setUsername($event)"
-        >
-        </BaseInputText>
+        />
 
         <div class="row">
           <div class="col">
@@ -32,8 +31,7 @@
               :button_text="'general_form.button_add'"
               :button_type="'success'"
               @emitted="increment"
-            >
-            </BaseButton>
+            />
           </div>
 
           <div class="col-auto">
@@ -42,8 +40,7 @@
               :button_text="'general_form.button_decrease'"
               :button_type="'danger'"
               @emitted="decrease"
-            >
-            </BaseButton>
+            />
           </div>
         </div>
       </div>

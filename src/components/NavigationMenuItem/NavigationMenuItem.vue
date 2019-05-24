@@ -1,6 +1,7 @@
 <template>
   <router-link class="nav-item nav-link" :to="routeLink">
-    <i class="fa" :class="iconClass"></i> <span>{{ $t("navigation." + itemTitle) }}</span>
+    <i class="fa" :class="iconClass"></i>
+    <span>{{ $t("navigation." + itemTitle) }}</span>
     <span v-if="badgeTitle" class="pull-right-container">
       <small class="badge badge-pill pull-right bg-green">{{
         badgeTitle

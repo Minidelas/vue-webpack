@@ -4,8 +4,8 @@ const SERVER_URL = "http://localhost:3000";
 
 axios.interceptors.response.use(
   function(response) {
-    console.log("INTERCEPTOR success");
-    console.log(response);
+    // console.log("INTERCEPTOR success");
+    // console.log(response);
     return response;
   },
 

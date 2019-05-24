@@ -1,6 +1,6 @@
 <template>
   <div class="form-group">
-    <label>{{ $t(labelText) }}</label>
+    <label v-if="labelText">{{ $t(labelText) }}</label>
     <input
       class="form-control"
       type="text"
@@ -15,8 +15,7 @@
 export default {
   props: {
     labelText: {
-      type: String,
-      required: true
+      type: String
     },
     placeholderText: {
       type: String,
